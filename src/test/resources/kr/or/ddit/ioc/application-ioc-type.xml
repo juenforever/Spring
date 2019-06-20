@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="userVo" class="kr.or.ddit.user.model.UserVo">
+		<property name="user_id" value="brown" />
+		<property name="birth" value="2019-08-08" />
+	</bean>
+
+	<!-- <bean id="dateEditor" -->
+	<!-- class="org.springframework.beans.propertyeditors.CustomDateEditor"> -->
+	<!-- <constructor-arg> -->
+	<!-- <bean class="java.text.SimpleDateFormat"> -->
+	<!-- <constructor-arg value="yyyy-MM-dd" /> -->
+	<!-- </bean> -->
+	<!-- </constructor-arg> -->
+	<!-- <constructor-arg value="true" /> -->
+	<!-- </bean> -->
+
+	<bean id="customEditorConfigurer"
+		class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="propertyEditorRegistrars">
+			<list>
+				<bean class="kr.or.ddit.typeConvert.CustomDateRegistry" />
+			</list>
+		</property>
+	</bean>
+</beans>

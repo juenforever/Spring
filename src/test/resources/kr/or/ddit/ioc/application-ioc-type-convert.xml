@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="userVo" class="kr.or.ddit.user.model.UserVo">
+		<property name="user_id" value="brown" />
+		<property name="birth" value="2019-08-08" />
+	</bean>
+
+	<bean id="conversionService"
+		class="org.springframework.context.support.ConversionServiceFactoryBean">
+		<property name="converters">
+			<set>
+				<bean class="kr.or.ddit.typeConvert.StringDateConverter">
+					<property name="pattern" value="yyyy-MM-dd" />
+				</bean>
+			</set>
+		</property>
+	</bean>
+</beans>

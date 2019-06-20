@@ -21,6 +21,6 @@
 	<bean id="boardServiceConstruction"
 		class="kr.or.ddit.board.service.BoardService">
 		<constructor-arg ref="boardDao" />
-
 	</bean>
+
 </beans>
