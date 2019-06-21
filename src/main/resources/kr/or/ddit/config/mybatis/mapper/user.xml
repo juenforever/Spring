@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+
+	<select id="userList" resultType="userVo">
+		select * from users order by
+		userId
+	</select>
+
+	<!-- 특정 사용자 조회 -->
+	<select id="getUser" parameterType="string" resultType="userVo">
+		select*from users
+		where userId = #{userId}
+	</select>
+	<!-- 사용자 페이지 리스트 조회 -->
+	<!-- pageVo int page, int pageSize -->
+	<!-- <select id="userPagingList" parameterType="pageVo" -->
+	<!-- resultType="userVo"> -->
+	<!-- <![CDATA[ -->
+	<!-- select * -->
+	<!-- from -->
+	<!-- (select a.*, rownum rn -->
+	<!-- from -->
+	<!-- (select a.* -->
+	<!-- from users a -->
+	<!-- order by userid) a ) -->
+	<!-- where rn >= (#{page}-1)*#{pageSize}+1 and rn <= #{page}*#{pageSize} -->
+	<!-- ]]> -->
+	<!-- </select> -->
+	<!-- 사용자 전체수 조회 -->
+	<select id="usersCnt" resultType="int">
+	select count(*) from users
+	</select>
+	<insert id="insertUser" parameterType="userVo">
+		insert into users
+		values(#{userId},#{name}, #{alias}, #{pass}, #{addr1}, #{addr2},
+		#{zipcd}, #{birth},#{path, jdbcType = VARCHAR},#{fileName, jdbcType
+		=
+		VARCHAR})
+	</insert>
+
+	<delete id="deleteUser" parameterType="string">
+		delete users
+		where userid =
+		#{userId}
+	</delete>
+
+	<update id="updateUser" parameterType="userVo">
+		UPDATE users
+		SET
+		userid
+		=#{userId}
+		,name = #{name}
+		,alias = #{alias}
+		,pass =
+		#{pass}
+		,addr1=#{addr1}
+		,addr2= #{addr2}
+		,zipcd=#{zipcd}
+		,birth=#{birth},path
+		=#{path,
+		jdbcType = VARCHAR},fileName = #{fileName, jdbcType =
+		VARCHAR}
+		WHERE
+		userid
+		=
+		#{userId}
+	</update>
+
+</mapper>
