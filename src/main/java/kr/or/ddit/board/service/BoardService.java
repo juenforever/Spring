@@ -20,10 +20,6 @@ public class BoardService implements IBoardService {
 		this.boardDao = boardDao;
 	}
 
-	public IBoardDao getBoardDao() {
-		return boardDao;
-	}
-
 	public void setBoardDao(IBoardDao boardDao) {
 		this.boardDao = boardDao;
 	}
@@ -31,6 +27,12 @@ public class BoardService implements IBoardService {
 	@Override
 	public String sayHello() {
 		return boardDao.sayHello();
+	}
+
+	@Override
+	public IBoardDao getBoardDao() {
+		// TODO Auto-generated method stub
+		return boardDao;
 	}
 
 }
