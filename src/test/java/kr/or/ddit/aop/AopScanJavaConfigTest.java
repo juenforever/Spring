@@ -14,8 +14,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import kr.or.ddit.board.service.IBoardService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { AopScanConfig.class })
-
+//@ContextConfiguration(classes = { AopScanConfig.class })
+@ContextConfiguration("application-ioc-st.xml")
 public class AopScanJavaConfigTest {
 	private static final Logger logger = LoggerFactory.getLogger(AopScanJavaConfigTest.class);
 

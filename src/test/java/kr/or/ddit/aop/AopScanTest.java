@@ -12,10 +12,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kr.or.ddit.board.service.IBoardService;
+import kr.or.ddit.testEnv.LogicTestEnv;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:kr/or/ddit/aop/application-aop-scan.xml")
-public class AopScanTest {
+public class AopScanTest extends LogicTestEnv {
 	private static final Logger logger = LoggerFactory.getLogger(AopScanTest.class);
 
 	@Resource(name = "boardService")

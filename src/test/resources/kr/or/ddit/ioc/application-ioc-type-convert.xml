@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="userVo" class="kr.or.ddit.user.model.UserVo">
-		<property name="user_id" value="brown" />
+		<property name="userId" value="brown" />
 		<property name="birth" value="2019-08-08" />
 	</bean>
 

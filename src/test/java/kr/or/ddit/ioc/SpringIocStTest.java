@@ -20,9 +20,9 @@ public class SpringIocStTest {
 
 	private static final Logger logger = LoggerFactory.getLogger(SpringIocStTest.class);
 
-	@Resource(name = "bService")
+	@Resource(name = "boardService")
 	private IBoardService boardService;
-	@Resource(name = "bDao")
+	@Resource(name = "boardDao")
 	private IBoardDao boardDao;
 
 	/**

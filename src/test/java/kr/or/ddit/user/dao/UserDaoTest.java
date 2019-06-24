@@ -55,7 +55,7 @@ public class UserDaoTest extends LogicTestEnv {
 	}
 
 	/**
-	 * Method : getUserTest 작성자 : PC01 변경이력 : Method 설명 : 사용자 조회 테스트
+	 * Method : getUserTest 작성자 : PC01 변경이력 : Method 설명 : 사용자 정보 조회 테스트
 	 */
 	@Test
 	public void getUserTest() {
