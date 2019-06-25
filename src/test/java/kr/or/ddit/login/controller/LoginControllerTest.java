@@ -56,8 +56,10 @@ public class LoginControllerTest extends ControllerTestEnv {
 
 		/***When***/
 		MvcResult mvcResult = mockMvc.perform(post("/login").param("userId",userId).param("password",password)).andReturn();
+		
 		ModelAndView mav = mvcResult.getModelAndView();
 		HttpSession session = mvcResult.getRequest().getSession();
+		
 		String viewName = mav.getViewName();
 		UserVo userVo = (UserVo)session.getAttribute("USER_INFO");
 		/***Then***/

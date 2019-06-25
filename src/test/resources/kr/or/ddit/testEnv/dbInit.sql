@@ -5,7 +5,7 @@ delete users;
 
 Insert into PC01_TEST.USERS (USERID,NAME,ALIAS,PASS,ADDR1,ADDR2,ZIPCD,BIRTH,PATH,FILENAME) values ('대덕인','userTest','중앙로','userTest1234','대전광역시 중구 중앙로 76','영민빌딩 2층 204호','34940',to_date('19/05/05','RR/MM/DD'),null,null);
 Insert into PC01_TEST.USERS (USERID,NAME,ALIAS,PASS,ADDR1,ADDR2,ZIPCD,BIRTH,PATH,FILENAME) values ('aa','대덕인','중앙로','userTest1234','대전광역시 중구 중앙로 76','영민빌딩 2층 204호','34940',to_date('19/05/31','RR/MM/DD'),'d:\upload\2019\06\f24858fa-bf88-4388-af78-b476a1265304.jpg','furniture2.jpg');
-Insert into PC01_TEST.USERS (USERID,NAME,ALIAS,PASS,ADDR1,ADDR2,ZIPCD,BIRTH,PATH,FILENAME) values ('brown','브라운','곰ww2','brown1234','대전광역시 중구 중앙로 76','영민빌딩 2층 대덕인재개발원www','34940',to_date('19/06/01','RR/MM/DD'),'d:\upload\2019\06\7c3a087b-4e2c-4348-a44a-d3f4db9fce17.jpg','clothing2.jpg');
+Insert into PC01_TEST.USERS (USERID,NAME,ALIAS,PASS,ADDR1,ADDR2,ZIPCD,BIRTH,PATH,FILENAME) values ('brown','브라운','곰ww2','c6347b73d5b1f7c77f8be828ee3e871c819578f23779c7d5e082ae2b36a44','대전광역시 중구 중앙로 76','영민빌딩 2층 대덕인재개발원www','34940',to_date('19/06/01','RR/MM/DD'),'d:\upload\2019\06\7c3a087b-4e2c-4348-a44a-d3f4db9fce17.jpg','clothing2.jpg');
 Insert into PC01_TEST.USERS (USERID,NAME,ALIAS,PASS,ADDR1,ADDR2,ZIPCD,BIRTH,PATH,FILENAME) values ('cony','userTest','중앙로','userTest1234','대전광역시 중구 중앙로 76','영민빌딩 2층 204호','34940',to_date('19/05/05','RR/MM/DD'),null,null);
 Insert into PC01_TEST.USERS (USERID,NAME,ALIAS,PASS,ADDR1,ADDR2,ZIPCD,BIRTH,PATH,FILENAME) values ('sally','샐리','병아리','sally1234',null,null,null,null,null,null);
 Insert into PC01_TEST.USERS (USERID,NAME,ALIAS,PASS,ADDR1,ADDR2,ZIPCD,BIRTH,PATH,FILENAME) values ('moon','문','달','moon1234',null,null,null,null,null,null);
