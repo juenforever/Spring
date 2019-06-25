@@ -6,14 +6,17 @@ import static org.junit.Assert.assertTrue;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.junit.Test;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.expression.ParseException;
 
+import kr.or.ddit.paging.model.PageVo;
 import kr.or.ddit.testEnv.LogicTestEnv;
 import kr.or.ddit.user.model.UserVo;
 
@@ -22,6 +25,9 @@ public class UserServiceTest extends LogicTestEnv {
 
 	@Resource(name = "userService")
 	private IUserService userService;
+	
+	@Resource(name = "sqlSession")
+	private SqlSessionTemplate sqlSession;
 
 	/**
 	 * Method : userListTest 작성자 : PC01 변경이력 : Method 설명 : 사용자 전체 리스트 조회 테스트
@@ -141,4 +147,26 @@ public class UserServiceTest extends LogicTestEnv {
 
 	}
 
+	/**
+	 * 
+	* Method : userPagingListTest
+	* 작성자 : PC01
+	* 변경이력 :
+	* Method 설명 : 사용자 페이징 리스트 조회 테스트
+	 */
+	@Test
+	public void userPagingListTest(){
+		/***Given***/
+		PageVo pageVo = new PageVo(1,10);
+
+		/***When***/
+		Map<String, Object> userList = userService.userPagingList(pageVo);
+		
+		/***Then***/
+		assertNotNull(userList);
+		assertEquals(2, userList.size());
+
+	}
+	
+	
 }

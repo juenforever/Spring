@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.core.io.ClassPathResource;
@@ -30,6 +31,7 @@ public class LogicTestEnv {
 		DatabasePopulatorUtils.execute(rdp, datasource);
 	}
 	@Test
+	@Ignore
 	public void dummy() {};
 
 }

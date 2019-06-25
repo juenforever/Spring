@@ -30,6 +30,10 @@
 
 				<div class="blog-header">
 					<h1 class="blog-title">Main</h1>
+						<pre>
+						
+						userVo : ${userVo }
+						</pre>
 					<p class="lead blog-description">Jsp / Spring.</p>
 				</div>
 

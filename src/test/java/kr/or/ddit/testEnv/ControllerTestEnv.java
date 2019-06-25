@@ -32,7 +32,7 @@ public class ControllerTestEnv {
 		mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
 	}
 	@Test 
-	@Ignore
+	@org.junit.Ignore
 	public void dummy() {};
 
 }

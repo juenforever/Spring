@@ -10,10 +10,12 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.junit.Test;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.expression.ParseException;
 
+import kr.or.ddit.paging.model.PageVo;
 import kr.or.ddit.testEnv.LogicTestEnv;
 import kr.or.ddit.user.model.UserVo;
 
@@ -22,20 +24,10 @@ public class UserDaoTest extends LogicTestEnv {
 
 	@Resource(name = "userDao")
 	private IUserDao userDao;
+	
+	@Resource(name = "sqlSession")
+	private SqlSessionTemplate sqlSession;
 
-	@Test
-	public void userListTest1() {
-		/*** Given ***/
-
-		/*** When ***/
-		List<UserVo> userList = userDao.userList();
-		logger.debug(userList.get(0).getUserId());
-
-		/*** Then ***/
-		assertNotNull(userList);
-		assertTrue(userList.size() >= 100);
-		assertEquals(130, userList.size());
-	}
 
 	/**
 	 * Method : userListTest 작성자 : PC01 변경이력 : Method 설명 : 사용자 전체 조회 테스트
@@ -47,10 +39,13 @@ public class UserDaoTest extends LogicTestEnv {
 
 		/*** When ***/
 		List<UserVo> userList = userDao.userList();
+		logger.debug(userList.get(0).getUserId());
 		/*** Then ***/
 		// assertEquals("brown", userList.get(0).getUserId());
 		// assertEquals(5, userList.size());
-		logger.debug("userList : {}", userList);
+		assertNotNull(userList);
+		assertTrue(userList.size() >= 100);
+		assertEquals(130, userList.size());
 
 	}
 
@@ -69,22 +64,6 @@ public class UserDaoTest extends LogicTestEnv {
 
 	}
 
-	/**
-	 * Method : userPagingListTest 작성자 : PC01 변경이력 : Method 설명 : 사용자 페이징 리스트 조회 테스트
-	 */
-//	@Test
-//	public void userPagingListTest() {
-//		/*** Given ***/
-//		PageVo pageVo = new PageVo(1, 10);
-//
-//		/*** When ***/
-//		List<UserVo> userList = userDao.userPagingList(pageVo);
-//
-//		/*** Then ***/
-//		assertNotNull(userList);
-//		assertEquals(10, userList.size());
-//
-//	}
 
 	/**
 	 * Method : usersCntTest 작성자 : PC01 변경이력 : Method 설명 : 사용자 전체수 조회 테스트
@@ -151,5 +130,26 @@ public class UserDaoTest extends LogicTestEnv {
 		// insertCnt(1)
 
 	}
+	
+	/**
+	 * 
+	* Method : userPagingListTest
+	* 작성자 : PC01
+	* 변경이력 :
+	* Method 설명 : 사용자 페이징 리스트 조회 테스트
+	 */
+	@Test
+	public void userPagingListTest(){
+		/***Given***/
+		PageVo pageVo = new PageVo(1,10);
 
+		/***When***/
+		List<UserVo> userList = userDao.userPagingList(pageVo);
+		
+		/***Then***/
+		assertNotNull(userList);
+		assertEquals(10, userList.size());
+
+	}
+	
 }
