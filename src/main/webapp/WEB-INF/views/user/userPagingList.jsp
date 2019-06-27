@@ -56,7 +56,7 @@
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<div class="row">
 					<div class="col-sm-8 blog-main">
-						<h2 class="sub-header">사용자</h2>
+						<h2 class="sub-header">userPagingList.jsp</h2>
 						
 						<form action="${cp }/user/user" id="frm">
 							<input type="hidden" id="userId" name="userId"/>
@@ -81,8 +81,10 @@
 								</c:forEach>
 							</table>
 						</div>
+						
 
 						<a href="${cp }/user/form" class="btn btn-default pull-right">사용자 등록</a>
+						<a href="${cp }/user/userListExcel?filename=userList" class="btn btn-default pull-right">엑셀 다운로드</a>
 						<!-- 사용자수 : 105건
 							 페이지네이션 : 11건
 						 -->
@@ -122,6 +124,9 @@
 										</li>
 									</c:otherwise>
 								</c:choose>
+								<c:forEach items = "${userList }" var = "user">
+								${user }
+								</c:forEach>
 							</ul>
 						</div>
 					</div>

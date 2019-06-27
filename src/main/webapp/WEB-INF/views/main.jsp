@@ -1,7 +1,7 @@
 <%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +18,9 @@
 </head>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp"%>
+	<pre>
+	main.jsp
+	</pre>
 
 
 	<div class="container-fluid">
@@ -63,6 +66,8 @@
 								<li>jstl</li>
 								<li>db pooling</li>
 								<li>페이지 모듈화</li>
+								
+								
 							</ul>
 						</div>
 					</div>

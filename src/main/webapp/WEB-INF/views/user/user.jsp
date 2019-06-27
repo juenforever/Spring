@@ -66,7 +66,7 @@
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">${path }</label>
 								<div class="col-sm-10">
-									<img id="img" src="${cp }/profile?userId=${userVo.userId}"/>
+									<img id="img" src="${cp }/user/profile?userId=${userVo.userId}"/>
 								</div>
 							</div>
 							
