@@ -50,6 +50,7 @@
 										<td>${lprod.lprod_id }</td>
 										<td>${lprod.lprod_gu }</td>
 										<td>${lprod.lprod_nm }</td>
+										<td></td>
 									</tr>
 								</c:forEach>
 							</table>

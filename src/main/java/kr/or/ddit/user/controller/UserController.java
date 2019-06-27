@@ -20,6 +20,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.or.ddit.encrypt.kisa.sha256.KISA_SHA256;
 import kr.or.ddit.paging.model.PageVo;
@@ -205,7 +206,11 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "/modify", method=RequestMethod.POST)
-	public String userModify(UserVo userVo, MultipartFile profile, HttpSession session, Model model) throws IllegalStateException, IOException {
+	public String userModify(UserVo userVo, 
+			MultipartFile profile, 
+			HttpSession session, 
+			Model model,
+			RedirectAttributes redirectAttributes) throws IllegalStateException, IOException {
 		logger.debug("modify");
 		logger.debug("userVo:{}",userVo);
 		if(profile.getSize()>0) {
@@ -229,7 +234,9 @@ public class UserController {
 		
 		if(updateCnt ==1) {
 			session.setAttribute("msg", "등록되었습니다");
-			return "redirect:/user/user?userId="+userVo.getUserId();
+			redirectAttributes.addFlashAttribute("msg","등록되었습니다");
+			redirectAttributes.addAttribute("userId",userVo.getUserId());
+			return "redirect:/user/user";
 		} else {
 			return userModify(userVo.getUserId(), model);
 		}		
