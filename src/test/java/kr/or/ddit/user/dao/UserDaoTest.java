@@ -24,10 +24,9 @@ public class UserDaoTest extends LogicTestEnv {
 
 	@Resource(name = "userDao")
 	private IUserDao userDao;
-	
+
 	@Resource(name = "sqlSession")
 	private SqlSessionTemplate sqlSession;
-
 
 	/**
 	 * Method : userListTest 작성자 : PC01 변경이력 : Method 설명 : 사용자 전체 조회 테스트
@@ -63,7 +62,6 @@ public class UserDaoTest extends LogicTestEnv {
 		logger.debug("userVo : {}", userVo);
 
 	}
-
 
 	/**
 	 * Method : usersCntTest 작성자 : PC01 변경이력 : Method 설명 : 사용자 전체수 조회 테스트
@@ -130,26 +128,23 @@ public class UserDaoTest extends LogicTestEnv {
 		// insertCnt(1)
 
 	}
-	
+
 	/**
 	 * 
-	* Method : userPagingListTest
-	* 작성자 : PC01
-	* 변경이력 :
-	* Method 설명 : 사용자 페이징 리스트 조회 테스트
+	 * Method : userPagingListTest 작성자 : PC01 변경이력 : Method 설명 : 사용자 페이징 리스트 조회 테스트
 	 */
 	@Test
-	public void userPagingListTest(){
-		/***Given***/
-		PageVo pageVo = new PageVo(1,10);
+	public void userPagingListTest() {
+		/*** Given ***/
+		PageVo pageVo = new PageVo(1, 10);
 
-		/***When***/
+		/*** When ***/
 		List<UserVo> userList = userDao.userPagingList(pageVo);
-		
-		/***Then***/
+
+		/*** Then ***/
 		assertNotNull(userList);
 		assertEquals(10, userList.size());
 
 	}
-	
+
 }
