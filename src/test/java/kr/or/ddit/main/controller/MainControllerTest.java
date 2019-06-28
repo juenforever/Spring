@@ -60,7 +60,7 @@ public class MainControllerTest extends ControllerTestEnv {
 		String viewName = mav.getViewName();
 		String userId = (String)mav.getModel().get("mainUserId");
 		/***Then***/
-		assertEquals("main",viewName);
+		assertEquals("tiles.main",viewName);
 		assertEquals("brown", userId);
 		assertNotNull(mav.getModel().get("rangers"));
 		assertNotNull(mav.getModel().get("userVo"));
@@ -74,7 +74,7 @@ public class MainControllerTest extends ControllerTestEnv {
 		/***When***/
 		mockMvc.perform(get("/main"))
 				.andExpect(status().isOk())
-				.andExpect(view().name("main"))
+				.andExpect(view().name("tiles.main"))
 				.andExpect(model().attribute("mainUserId","brown"))
 				.andExpect(model().attributeExists("rangers"))
 				.andExpect(model().attributeExists("userVo"))
@@ -100,7 +100,7 @@ public class MainControllerTest extends ControllerTestEnv {
 		ModelAndView mav = mvcResult.getModelAndView();
 		/***Then***/
 		//viewName이 기대하는 문자열로 리턴 되는지
-		assertEquals("main", mav.getViewName());
+		assertEquals("tiles.main", mav.getViewName());
 		//model객체에 controller에서 설정한 속성이 있는지
 		assertEquals("brown", mav.getModel().get("mainUserId"));		
 		assertNotNull(mav.getModel().get("rangers"));

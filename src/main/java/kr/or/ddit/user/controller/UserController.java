@@ -96,7 +96,7 @@ public class UserController {
 		model.addAttribute("paginationSize", paginationSize);
 		model.addAttribute("pageVo", pageVo);
 
-		return "user/userPagingList";
+		return "tiles.userPagingList";
 	}
 
 	/**

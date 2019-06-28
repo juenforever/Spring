@@ -82,7 +82,7 @@ public class UserControllerTest extends ControllerTestEnv {
 		int paginationSize = (Integer) mav.getModelMap().get("paginationSize");
 		PageVo pageVo = (PageVo) mav.getModelMap().get("pageVo");
 		/*** Then ***/
-		assertEquals("user/userPagingList", viewName);
+		assertEquals("tiles.userPagingList", viewName);
 		assertEquals(10, userList.size());
 		assertEquals(13, paginationSize);
 		assertEquals(2, pageVo.getPage());
@@ -113,7 +113,7 @@ public class UserControllerTest extends ControllerTestEnv {
 		int paginationSize = (Integer) mav.getModelMap().get("paginationSize");
 		PageVo pageVo = (PageVo) mav.getModelMap().get("pageVo");
 		/*** Then ***/
-		assertEquals("user/userPagingList", viewName);
+		assertEquals("tiles.userPagingList", viewName);
 		assertEquals(10, userList.size());
 		assertEquals(13, paginationSize);
 		assertEquals(1, pageVo.getPage());
@@ -195,7 +195,7 @@ public class UserControllerTest extends ControllerTestEnv {
 						.param("zipcd", "34940")
 						.param("birth", "2019-05-31")
 						.param("pass", "userTest1234"))
-				.andExpect(view().name("redirect:/userPagingList"));
+				.andExpect(view().name("redirect:/user/pagingList"));
 		/***Then***/ 		
 		
 	}
@@ -288,7 +288,7 @@ public class UserControllerTest extends ControllerTestEnv {
 				.param("zipcd", "34940")
 				.param("birth", "2019-05-31")
 				.param("pass", "userTest1234"))
-				.andExpect(view().name("redirect:/user?userId=brown"));
+				.andExpect(view().name("redirect:/user/user"));
 		/***Then***/ 		
 	}
 }

@@ -1,6 +1,7 @@
 package kr.or.ddit.view;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +21,7 @@ import kr.or.ddit.user.model.UserVo;
 
 public class ExcelDownloadView implements View {
 	private static final Logger logger = LoggerFactory.getLogger(ExcelDownloadView.class);
-	
+
 	@Override
 	public String getContentType() {
 
@@ -33,9 +34,9 @@ public class ExcelDownloadView implements View {
 
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/vnd.ms-excel");
-		response.setHeader("Content-Disposition", "attachment; filename ="+model.get("filename")+".xlsx");
+		response.setHeader("Content-Disposition", "attachment; filename =" + model.get("filename") + ".xlsx");
 		logger.debug("filename:{}", model.get("filename"));
-		
+
 		List<String> header = (List<String>) model.get("header"); // data 헤더 정보(userId, name, alias...)
 		List<UserVo> userList = (List<UserVo>) model.get("data"); // data
 
@@ -49,14 +50,13 @@ public class ExcelDownloadView implements View {
 		row = sheet.createRow(rowIdx++);
 
 		// header 쓰기
-		
+
 		for (String head : header)
 			row.createCell(colIdx++).setCellValue(head);
-		
-		//data 쓰기
-		for(UserVo user:userList) {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		//헤더에서 만든 col인덱스 초기화
+
+		// data 쓰기
+		for (UserVo user : userList) {
+			// 헤더에서 만든 col인덱스 초기화
 			colIdx = 0;
 			row = sheet.createRow(rowIdx++);
 			row.createCell(colIdx++).setCellValue(user.getUserId());
@@ -65,9 +65,15 @@ public class ExcelDownloadView implements View {
 			row.createCell(colIdx++).setCellValue(user.getAddr1());
 			row.createCell(colIdx++).setCellValue(user.getAddr2());
 			row.createCell(colIdx++).setCellValue(user.getZipcd());
-			row.createCell(colIdx++).setCellValue(user.getBirth());
+			String birthString = null;
+			Date birth = user.getBirth();
+			if (birth != null) {
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				birthString = sdf.format(birth);
+			}
+			row.createCell(colIdx++).setCellValue(birthString);
 		}
-		
+
 		ServletOutputStream sos = response.getOutputStream();
 		workbook.write(sos);
 		workbook.close();
