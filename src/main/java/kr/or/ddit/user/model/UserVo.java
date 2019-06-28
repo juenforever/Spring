@@ -124,14 +124,14 @@ public class UserVo {
 		this.fileName = fileName;
 	}
 
-	public String getBirthStr() {
-		SimpleDateFormat sdf = null;
-		if (birth != null) {
-
-			sdf = new SimpleDateFormat("yyyy-MM-dd");
-		}
-		return sdf.format(this.birth);
-	}
+//	public String getBirthStr() {
+//		SimpleDateFormat sdf = null;
+//		if (birth != null) {
+//
+//			sdf = new SimpleDateFormat("yyyy-MM-dd");
+//		}
+//		return sdf.format(this.birth);
+//	}
 
 	@Override
 	public String toString() {

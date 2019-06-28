@@ -6,5 +6,6 @@
 		<li class="active"><a href="${cp}/user/list">사용자리스트</a></li>
 		<li class="active"><a href="${cp}/user/pagingList">사용자페이징리스트</a></li>
 		<li class="active"><a href="${cp}/lprod/pagingList">lprod 페이징	리스트</a></li>
+		<li class="active"><a href="${cp}/user/pagingListAjaxView">사용자 페이징 리스트(ajax)</a></li>
 	</ul>
 </div>

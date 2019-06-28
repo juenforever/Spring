@@ -25,6 +25,17 @@
 			$("#frm").submit();
 		});
 	});
+
+function userPagingListAjaxHtml(page, pageSize) {
+	$.ajax({
+		url : "/user/userPagingListAjaxHtml",
+		//			method : "post",
+		data : "page=" + page + "&pageSize=" + pageSize,
+		success : function(d) {
+			console.log(d);
+		}
+	});
+}
 </script>
 <div class="row">
 	<div class="col-sm-8 blog-main">
@@ -42,7 +53,7 @@
 					<th>사용자 별명</th>
 					<th>등록일시</th>
 				</tr>
-				
+
 				<!--향상된 포문 -->
 				<c:forEach items="${userList }" var="user" varStatus="status">
 					<tr class="userTr" data-userid="${user.userId }"
@@ -53,7 +64,7 @@
 						<td></td>
 					</tr>
 				</c:forEach>
-				
+
 			</table>
 		</div>
 

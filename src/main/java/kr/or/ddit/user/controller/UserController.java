@@ -98,7 +98,35 @@ public class UserController {
 
 		return "tiles.userPagingList";
 	}
+	
+	/**
+	* Method : pagingListAjax
+	* 작성자 : PC01
+	* 변경이력 :
+	* @param pageVo
+	* @param model
+	* @return
+	* Method 설명 : 사용자 페이징 리스트 ajax처리
+	*/
+	
+	@RequestMapping("/pagingListAjaxHtml")
+	public String pagingListAjaxHtml(PageVo pageVo, Model model) {
+		
+		logger.debug("pageVo:{}",pageVo);
+		
+		model.addAttribute("data",userService.userPagingList(pageVo));
+		
+		logger.debug("userService.userPagingList:{}",userService.userPagingList(pageVo));
+		
+		return "user/userPagingListAjaxHtml";
+		
+	}
 
+	@RequestMapping("/pagingListAjaxView")
+	public String pagingListAjaxView(Model model) {
+		return "tiles.pagingListAjaxView";
+	}
+	
 	/**
 	* Method : user
 	* 작성자 : PC01
@@ -205,6 +233,7 @@ public class UserController {
 	* @return
 	* Method 설명 : 사용자 등록
 	*/
+	
 	@RequestMapping(path = "/form", method = RequestMethod.POST)
 	public String userFormJsr(@Valid UserVo userVo, BindingResult result, String userId, MultipartFile profile, Model model) {
 		
@@ -274,6 +303,7 @@ public class UserController {
 	* @return
 	* Method 설명 : 사용자 수정 화면 요청
 	*/
+	
 	@RequestMapping(path = "/modify", method = RequestMethod.GET)
 	public String userModify(String userId, Model model) {
 		logger.debug("get modify");
