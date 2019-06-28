@@ -100,7 +100,7 @@ public class MainControllerTest extends ControllerTestEnv {
 		ModelAndView mav = mvcResult.getModelAndView();
 		/***Then***/
 		//viewName이 기대하는 문자열로 리턴 되는지
-		assertEquals("tiles.main", mav.getViewName());
+		assertEquals("main", mav.getViewName());
 		//model객체에 controller에서 설정한 속성이 있는지
 		assertEquals("brown", mav.getModel().get("mainUserId"));		
 		assertNotNull(mav.getModel().get("rangers"));
