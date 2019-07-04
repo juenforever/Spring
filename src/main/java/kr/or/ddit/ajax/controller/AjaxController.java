@@ -9,7 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.or.ddit.paging.model.PageVo;
 import kr.or.ddit.user.model.UserVo;
@@ -43,15 +45,17 @@ public class AjaxController {
 		return "jsonView";
 	}
 
+	@RequestMapping("/requestDataResponseBody")
+	@ResponseBody	//응답 내용을 responseBody에다가 작성
+	public PageVo requestDataResponseBody() {
+		return new PageVo(5, 10);
+	}
+
 	@RequestMapping("/user")
 	public String user(String userId, Model model) {
 		
-		logger.debug("userId:{}",userId);
 		UserVo userVo = userService.getUser(userId);
-		logger.debug("userVo:{}",userVo);
 		model.addAttribute("userVo",userVo);
-		
-		//{userVo : {userId : 'brown', name : '브라운', alias : '곰'............}}
 		
 		return "jsonView";
 	}
@@ -59,14 +63,22 @@ public class AjaxController {
 	@RequestMapping("/userHtml")
 	public String userHtml(String userId, Model model) {
 		
-		logger.debug("userId:{}",userId);
 		UserVo userVo = userService.getUser(userId);
-		logger.debug("userVo:{}",userVo);
 		model.addAttribute("userVo",userVo);
-		
-		//{userVo : {userId : 'brown', name : '브라운', alias : '곰'............}}
 		
 		return "user/userHtml";
 	}
+	
+	@RequestMapping("/requestBody")
+	@ResponseBody
+	public UserVo requestBody(@RequestBody UserVo userVo) {
+		userVo.setUserId(userVo.getUserId()+"_MODIFY");
+		userVo.setPass(userVo.getPass()+"_MODIFY");
+		return userVo;
+	}
+	
+	@RequestMapping(path = "/requestBody", consumes = {"application/json"},
+			
+			)
 	
 }

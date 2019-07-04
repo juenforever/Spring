@@ -38,7 +38,7 @@ public class LoginControllerTest extends ControllerTestEnv {
 		ModelAndView mav = mvcResult.getModelAndView();
 		String viewName = mav.getViewName();
 		/*** Then ***/
-		assertEquals("main", viewName);
+		assertEquals("tiles.main", viewName);
 	}
 	
 	/**
@@ -63,7 +63,7 @@ public class LoginControllerTest extends ControllerTestEnv {
 		String viewName = mav.getViewName();
 		UserVo userVo = (UserVo)session.getAttribute("USER_INFO");
 		/***Then***/
-		assertEquals("main", viewName);
+		assertEquals("tiles.main", viewName);
 		assertEquals("브라운", userVo.getName());
 	}
 	/**
