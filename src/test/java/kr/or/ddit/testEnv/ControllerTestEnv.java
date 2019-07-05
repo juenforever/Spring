@@ -17,13 +17,21 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
+import kr.or.ddit.config.spring.ApplicationContext;
+import kr.or.ddit.config.spring.ApplicationDatasource;
+import kr.or.ddit.config.spring.ApplicationTransaction;
+import kr.or.ddit.config.spring.RootContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({ "classpath:kr/or/ddit/config/spring/root-context.xml",
-		"classpath:kr/or/ddit/config/spring/application-context.xml",
-		"classpath:kr/or/ddit/config/spring/application-datasource_dev.xml",
-		"classpath:kr/or/ddit/config/spring/application-transaction.xml" })
+@ContextConfiguration(classes = {ApplicationContext.class, 
+								RootContext.class, 
+								ApplicationDatasource.class, 
+								ApplicationTransaction.class}
+		)
+//		{ "classpath:kr/or/ddit/config/spring/root-context.xml",
+//		"classpath:kr/or/ddit/config/spring/application-context.xml",
+//		"classpath:kr/or/ddit/config/spring/application-datasource_dev.xml",
+//		"classpath:kr/or/ddit/config/spring/application-transaction.xml" }
 
 //웹 환경
 @WebAppConfiguration
