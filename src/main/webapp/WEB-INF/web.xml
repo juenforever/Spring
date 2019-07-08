@@ -46,9 +46,9 @@
 		kr.or.ddit.config.spring.RootContext,
 		kr.or.ddit.config.spring.ApplicationDatasource,
 		kr.or.ddit.config.spring.ApplicationTransaction
-<!-- 		classpath:kr/or/ddit/config/spring/root-context.xml -->
-<!-- 		classpath:kr/or/ddit/config/spring/application-datasource.xml -->
-<!-- 		classpath:kr/or/ddit/config/spring/application-transaction.xml -->
+<!-- classpath:kr/or/ddit/config/spring/root-context.xml -->
+<!-- classpath:kr/or/ddit/config/spring/application-datasource.xml -->
+<!-- classpath:kr/or/ddit/config/spring/application-transaction.xml -->
 		</param-value>
 	</context-param>
 

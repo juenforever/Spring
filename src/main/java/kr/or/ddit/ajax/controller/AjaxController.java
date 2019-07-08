@@ -1,8 +1,5 @@
 package kr.or.ddit.ajax.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
@@ -21,12 +18,19 @@ import kr.or.ddit.user.service.IUserService;
 @Controller
 public class AjaxController {
 	private static final Logger logger = LoggerFactory.getLogger(AjaxController.class);
-	
-	@Resource(name="userService")
+
+	@Resource(name = "userService")
 	private IUserService userService;
 
+	/**
+	 * 
+	 * Method : view 작성자 : PC20 변경이력 :
+	 * 
+	 * @return Method 설명 : ajax 호출용 view
+	 */
 	@RequestMapping("/view")
 	public String view() {
+
 		return "tiles.ajaxView";
 	}
 
@@ -34,51 +38,59 @@ public class AjaxController {
 	public String requestData(Model model) {
 
 		model.addAttribute("pageVo", new PageVo(5, 10));
-		model.addAttribute("pageVo", new PageVo(2, 10));
-		List<String> rangers = new ArrayList<String>();
-		rangers.add("brown");
-		rangers.add("sally");
-		rangers.add("cony");
-
-		model.addAttribute("rangers", rangers);
+//		model.addAttribute("pageVo2", new PageVo(5, 10));
+//		List<String> rangers = new ArrayList<String>();
+//		rangers.add("brown");
+//		rangers.add("sally");
+//		rangers.add("cony");
+//		model.addAttribute("rangers", rangers);
+		/*
+		 * { pageVo : {page :5, pageSize: 10}} { pageVo : {page :5, pageSize: 10},{
+		 * pageVo2 : {page :5, pageSize: 10}} { pageVo : {page :5, pageSize: 10},{
+		 * pageVo2 : {page :5, pageSize: 10}, rangers :["brown","sally","cony"]}
+		 */
 
 		return "jsonView";
 	}
 
 	@RequestMapping("/requestDataResponseBody")
-	@ResponseBody	//응답 내용을 responseBody에다가 작성
+	@ResponseBody // 응답내용을 responseBody에다가 작성
 	public PageVo requestDataResponseBody() {
-		return new PageVo(5, 10);
+		return new PageVo(5, 10); // 지정하지 않으면 기본형으로 json이 리턴
 	}
 
 	@RequestMapping("/user")
 	public String user(String userId, Model model) {
-		
+
 		UserVo userVo = userService.getUser(userId);
-		model.addAttribute("userVo",userVo);
-		
+		model.addAttribute("userVo", userVo);
+		// {userVo : {userId : brown', name : '브라운', alias : '곰' .......}}
+
 		return "jsonView";
 	}
-	
+
 	@RequestMapping("/userHtml")
 	public String userHtml(String userId, Model model) {
-		
+
 		UserVo userVo = userService.getUser(userId);
-		model.addAttribute("userVo",userVo);
-		
+		model.addAttribute("userVo", userVo);
+
 		return "user/userHtml";
 	}
-	
-	@RequestMapping("/requestBody")
+
+	@RequestMapping(path = "/requestBody",
+
+			// consumes : content-type 제한
+			consumes = { "application/json" },
+
+			// produces : 메소드가 생성 가능한 타입(accept 헤더 확인)
+			produces = { "application/json", "application/xml" })
 	@ResponseBody
 	public UserVo requestBody(@RequestBody UserVo userVo) {
-		userVo.setUserId(userVo.getUserId()+"_MODIFY");
-		userVo.setPass(userVo.getPass()+"_MODIFY");
+		logger.debug("userVo : {}", userVo);
+		userVo.setUserId(userVo.getUserId() + "_MODIFY");
+		userVo.setPass(userVo.getPass() + "_MODIFY");
+
 		return userVo;
 	}
-	
-	@RequestMapping(path = "/requestBody", consumes = {"application/json"},
-			
-			)
-	
 }
