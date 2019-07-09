@@ -16,15 +16,27 @@ public class RangerBatch {
 		ApplicationContext context =
 				new ClassPathXmlApplicationContext("classpath:kr/or/ddit/config/spring/application-batch-dev.xml");
 		
-		JobLauncher jobLauncher = (JobLauncher) context.getBean("jobLauncher");
+		JobLauncher jobLauncher = (JobLauncher)context.getBean("jobLauncher");
 		Job rangerJob = (Job)context.getBean("rangerJob");
 		
 		try {
+			
 			jobLauncher.run(rangerJob, new JobParameters());
+			
 		} catch (JobExecutionAlreadyRunningException | JobRestartException | JobInstanceAlreadyCompleteException
 				| JobParametersInvalidException e) {
 			e.printStackTrace();
 		}
-		
 	}
 }
+
+
+
+
+
+
+
+
+
+
+

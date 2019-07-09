@@ -7,25 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<pre>
-	view.jsp
-	</pre>
-	<form action="/main/process" method = "post">
-		userId : <input type = "text" name = "userId" value = "brown"/><br>
-		userId : <input type = "text" name = "userId" value = "sally"/><br>
-
-	    name : <input type = "text" name = "name" value = "브라운"/><br>
-		name : <input type = "text" name = "name" value = "셀리"/><br>
+	<form action="/main/process" method="post" >
+		userId : <input type = "text" name = "userId" value="borwn"/> <br>
+		userId : <input type = "text" name = "userId" value="sally"/> <br>
 		
-		addr : <input type = "text" name = "addr[0].addr1" value = "대전시 중구"/><br>
-		addr : <input type = "text" name = "addr[0].addr2" value = "중앙로 76"/><br>
-
-		addr : <input type = "text" name = "addr[1].addr1" value = "대전시 중구"/><br>
-		addr : <input type = "text" name = "addr[1].addr2" value = "중구청"/><br>
+		name : <input type = "text" name = "name" value="브라운"/> <br>
+		name : <input type = "text" name = "name" value="샐리"/> <br>
 		
+		addr : <input type = "text" name = "addr[0].addr1" value="대전시 중구"/> <br>
+		addr : <input type = "text" name = "addr[0].addr2" value="중알로76"/> <br>
 		
+		addr : <input type = "text" name = "addr[1].addr1" value="대전시 중구"/> <br>
+		addr : <input type = "text" name = "addr[1].addr2" value="중구청"/> <br>
 		
-		<input type = "submit" value = "전송"/>
+		<input type = "submit" value="전송"/>
 	</form>
-	</body>
+</body>
 </html>

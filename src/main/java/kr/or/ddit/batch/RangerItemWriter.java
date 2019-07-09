@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemWriter;
 
 public class RangerItemWriter implements ItemWriter<String>{
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(RangerItemWriter.class);
 	
 	@Override

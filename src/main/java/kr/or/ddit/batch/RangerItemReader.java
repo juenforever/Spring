@@ -11,9 +11,9 @@ import org.springframework.batch.item.ParseException;
 import org.springframework.batch.item.UnexpectedInputException;
 
 public class RangerItemReader implements ItemReader<String>{
-
-	private static final Logger logger = LoggerFactory.getLogger(RangerItemReader.class);
 	
+	private static final Logger logger = LoggerFactory.getLogger(RangerItemReader.class);
+
 	private List<String> rangers;
 	private int index = 0;
 	
@@ -28,16 +28,23 @@ public class RangerItemReader implements ItemReader<String>{
 	
 	@Override
 	public String read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
-		//	null을 리턴하게 되면 더 이상 읽을 데이터가 없다고 판단
+		// null을 리턴하게 되면 더이상 읽을 데이터가 없다고 판단
 		if(index <= rangers.size()-1) {
-			String ranger= rangers.get(index);
-			logger.debug("reader : {}",ranger);
-			return rangers.get(index++);
+			String ranger = rangers.get(index++);
+			logger.debug("reader : {}", ranger);
+			return ranger;
 		}
 		else {
 			index = 0;
 			return null;
 		}
+	
 	}
 
 }
+
+
+
+
+
+

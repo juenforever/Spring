@@ -1,15 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>exception.jsp</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<pre>
-<h1>exception.jsp</h1>
-</pre>
-
+	exception.jsp
 </body>
 </html>

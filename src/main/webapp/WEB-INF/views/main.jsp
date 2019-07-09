@@ -1,17 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<pre>
-	main.jsp
-	</pre>
+
+
+
+
 
 <div class="blog-header">
-	<h1 class="blog-title">Main(tiles)</h1>
-	<pre>
-						
-						userVo : ${userVo }
-						</pre>
-	<p class="lead blog-description">Jsp / Spring.</p>
+	<h1 class="blog-title">JSP Tiles 적용</h1>
+	<p class="lead blog-description">JSP</p>
 </div>
 
 <div class="row">
@@ -19,13 +15,8 @@
 	<div class="col-sm-8 blog-main">
 
 		<div class="blog-post">
-			<h2 class="blog-post-title">JSP</h2>
-			<p class="blog-post-meta">2017.10.30, room 201</p>
-
-			<c:choose>
-				<c:when test="${USER_INFO.name != null }">${USER_INFO.name }</c:when>
-				<c:otherwise>[접속하지 않은 사용자 입니다.]</c:otherwise>
-			</c:choose>
+			<h2 class="blog-post-title">게시판 생성</h2>
+			<p class="blog-post-meta">2019.06.04</p>
 
 			<p>jsp를 통한 웹 프로그래밍 학습</p>
 			<hr>
@@ -40,9 +31,9 @@
 				<li>jstl</li>
 				<li>db pooling</li>
 				<li>페이지 모듈화</li>
-
-
 			</ul>
 		</div>
 	</div>
+	<!-- /.blog-main -->
 </div>
+
